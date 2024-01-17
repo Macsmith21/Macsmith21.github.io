@@ -1,6 +1,13 @@
 
-body{background: skyblue;}
+body /* Main Structure */
+{
+    background: skyblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+}
 h1{color:crimson;}
-div{
+div
+{
+    background: white;
     margin: auto;
 }
