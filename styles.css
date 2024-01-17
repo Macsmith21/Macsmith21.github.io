@@ -1,3 +1,6 @@
 
 body{background: skyblue;}
 h1{color:crimson;}
+div{
+    margin: auto;
+}
