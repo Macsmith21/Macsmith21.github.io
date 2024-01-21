@@ -25,12 +25,16 @@ h1{
     padding: 5px;
     margin: 5px;
     background-color: rgba(0, 0, 0, 0.253);
+
+}
+.cbot{
+    text-align:center ;
+}
+.col1o2{
+   
 }
 
 /*NAV*/
-#main-nav{
-
-}
 #main-nav ul{
     padding-left: 0px;
 }
@@ -50,14 +54,13 @@ h1{
 }
 /*resolutions*/
 @media (min-width:900px) {
-    #main-nav ul, .flex-container {
+    #main-nav ul, .flex-container{
         display: flex;
     }
-    #main-nav li,.col1{
+    #main-nav li,.col1, .cbot{
         flex: 1;
     }
     .col2{
         flex: 2;
     }
-    
 } 
