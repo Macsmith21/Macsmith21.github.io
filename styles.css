@@ -4,16 +4,14 @@ body /* Main Structure */
     background-image:url(images/Background.gif);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-size: cover;
-    padding: 10px;
     color: #FEFEFE;
+    text-align: center;
 }
 div
 {
-    padding: 5px;
     background: rgb(0,0,0,0.45);
+    width: 75%;
     margin: auto;
-    width: 60%;
-    text-align: center;
 }
 #main-nav a{
     text-decoration: none;
@@ -37,23 +35,26 @@ div
 }
 h1{color:#F29F05;}
 
-#assignments a, ul, li{
+#assignments ul{
+    padding-left: 0px;
+}
+#assignments li{
     text-decoration: none;
     background-color: #3F003F;
     color: #FFBE00;
-    padding: 7px;
     border-style: groove;
-    margin: 10px;
-    display: inline-block;
     list-style: none;
 }
-#assignments a:hover{
-    background-color: #030973;
+#assignments img:hover{
+    border-color: #030973;
+    border-style: groove;
+    border-width: 5px;
 }
 /*Resolutions*/
 @media (min-width:900px) {
     #main-nav ul, #assignments ul{
         display: flex;
+        
     }
     #main-nav li{
         flex: 1;
