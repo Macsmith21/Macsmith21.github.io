@@ -37,7 +37,7 @@ div
 }
 h1{color:#F29F05;}
 
-#assignments a{
+#assignments a, ul, li{
     text-decoration: none;
     background-color: #3F003F;
     color: #FFBE00;
@@ -45,4 +45,17 @@ h1{color:#F29F05;}
     border-style: groove;
     margin: 10px;
     display: inline-block;
+    list-style: none;
+}
+#assignments a:hover{
+    background-color: #030973;
+}
+/*Resolutions*/
+@media (min-width:900px) {
+    #main-nav ul, #assignments ul{
+        display: flex;
+    }
+    #main-nav li{
+        flex: 1;
+    }
 }
