@@ -45,6 +45,7 @@ h1{color:#F29F05;}
     border-style: groove;
     list-style: none;
 }
+ul{padding-left: 0px;}
 #assignments img:hover{
     border-color: #030973;
     border-style: groove;
