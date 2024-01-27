@@ -9,8 +9,8 @@ body /* Main Structure */
 }
 div
 {
-    background: rgb(0,0,0,0.45);
-    width: 75%;
+    background: rgba(0, 0, 0, 0.65);
+    width: 60%;
     margin: auto;
 }
 #main-nav a{
@@ -40,12 +40,19 @@ h1{color:#F29F05;}
 }
 #assignments li{
     text-decoration: none;
-    background-color: #3F003F;
+    background-color: #3f003fc8;
     color: #FFBE00;
     border-style: groove;
     list-style: none;
 }
-ul{padding-left: 0px;}
+#assignments img{    
+    border-color: #d76303;
+    border-style: groove;
+    border-width: 10px;
+}
+ul{
+    padding-left: 0px;
+}
 #assignments img:hover{
     border-color: #030973;
     border-style: groove;
