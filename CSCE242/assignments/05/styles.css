@@ -21,8 +21,36 @@ header{
 #Headers{
     background-color: black;
 }
-#Main-nav{
-    position: relative;
-    top: auto;
-    right: auto;
+
+#main-list ul li{
+border-bottom: 1px solid #c7c7c7;
+list-style: none;
+}
+#main-list a{
+    text-decoration: none;
+    color:black;
+    size: 24px;
+}
+.column{
+    display: block;
+    flex: left;
+    padding: 10px;
+}
+#main-section{
+    flex: auto;
+    display:flex;
+    margin: 10px;
+    padding: 50px;
+}
+#main-content{
+    padding-left:5em;
+}
+@media (min-width:900px) {
+    #main-nav ul{
+        display: flex;
+        
+    }
+    #main-nav li{
+        flex: 1;
+    }
 }
