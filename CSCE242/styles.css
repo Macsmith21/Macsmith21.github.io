@@ -28,14 +28,19 @@ div
     background-color:#0B04D9;
     padding: 8px;
 }
+
+
+/* Typography*/
 #name{
     padding: 8px;
     text-decoration: underline;
     font-size: 24px;
     border-radius: 3px;
 }
-h1{color:#F29F05;}
 
+h1{
+    color:#F29F05;
+}
 #assignments ul{
     padding-left: 0px;
 }
@@ -54,11 +59,7 @@ h1{color:#F29F05;}
 ul{
     padding-left: 0px;
 }
-#assignments img:hover{
-    border-color: #030973;
-    border-style: groove;
-    border-width: 5px;
-}
+
 /*Resolutions*/
 @media (min-width:900px) {
     .container{
