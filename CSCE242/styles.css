@@ -11,7 +11,7 @@ body /* Main Structure */
 div
 {
     background: rgba(0, 0, 0, 0.65);
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 #main-nav a{
@@ -61,11 +61,11 @@ ul{
 }
 /*Resolutions*/
 @media (min-width:900px) {
-    #main-nav ul, #assignments ul{
+    .container{
         display: flex;
-        
     }
-    #main-nav li{
+    .column{
         flex: 1;
+        align-items: flex-start;
     }
 }
