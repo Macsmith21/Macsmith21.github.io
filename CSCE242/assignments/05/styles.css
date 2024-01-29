@@ -9,11 +9,13 @@ header{
     color: white;
     text-align: center;
     margin: auto;
-    padding: 10px;
-    width: 100%;   
+    padding: 1em;
+    width: 100%;
+    background-size: cover;   
+
 }
 #Banner{
-    background-color: darkred;
+    background-color: #73000A;
     color: rgb(255, 255, 255);
     margin: 0px;
     padding: 4px;
@@ -21,11 +23,11 @@ header{
 #Headers{
     background-color: black;
 }
-#subfooter{background-color: gray;
+#subfooter{background-color: #ECECEC;
 
 }
 footer{
-    background-color:darkred;
+    background-color:#73000A;
 }
 h1{
     padding: .5em;
@@ -69,7 +71,6 @@ border-top: 1px solid #c7c7c7;
 list-style: none;
 text-wrap:balance;
 padding: 5px;
-font-size: 30px;
 }
 #main-list a{
     text-decoration: none;
@@ -82,7 +83,7 @@ font-size: 30px;
     display:flex;
     margin: auto;
     padding: 50px;
-    width: auto;
+    width: 70%;
 }
 .row{
     padding: 5px;
@@ -93,7 +94,7 @@ font-size: 30px;
 }
 #main-content{
     padding-left:5em;
-    flex: 2;
+    flex: 80%;
 }
 #footnav{
     position: relative;
@@ -101,7 +102,12 @@ font-size: 30px;
     flex: 1;
     padding: .75em;
 }
-
+.botlist li{
+    text-wrap:wrap;
+}
+.botlist{
+    color: white;
+}
 @media (min-width:900px) {
     .container{
         display: flex;
@@ -109,9 +115,12 @@ font-size: 30px;
     }
     .fleximg{
      align-self: flex-start;
+     padding-right: 5px;
     }
     #mainimg{
         align-self: center;
+        width: 100%;
+        height: auto;
     }
     #sub, #botlists{
         flex: 1;
@@ -120,7 +129,7 @@ font-size: 30px;
         display: flex;
         
     }
-    #main-nav li{
+    #main-nav li,.botlist{
         flex: 1;
     }
     #sub{
