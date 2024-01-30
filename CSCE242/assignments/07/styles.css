@@ -47,3 +47,7 @@
         flex-basis: 400px;
         }
     }
+/* Animations */
+@keyframes ImageChange {
+    0%{}
+}
