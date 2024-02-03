@@ -41,6 +41,9 @@
     #Slider:hover{
         opacity: 100%;
     }
+    #Star-Col{
+        background-color: black;
+    }
 
 
 /* Typography */
@@ -53,6 +56,14 @@
     }
     h3{
         color: brown;
+    }
+    .star{
+        color: greenyellow;
+        font-size: 48px;
+
+        
+        
+
     }
 
 /* Flexbox */ /* Resolutions */
