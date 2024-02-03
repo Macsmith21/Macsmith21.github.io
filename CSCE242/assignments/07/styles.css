@@ -22,6 +22,25 @@
     footer{
         text-align: center;
         }
+    #Slider{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 80%;
+        height: 100%;
+       background-color: black;
+       border: 2px solid green;
+       opacity: 50%;
+    }
+    #Slider::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: rgba(0,48,255, .9);
+        width: 10px;
+        height: 20px;
+    }
+    #Slider:hover{
+        opacity: 100%;
+    }
 
 
 /* Typography */
@@ -48,17 +67,3 @@
         flex-basis: 400px;
         }
     }
-/* Animations */
-#RotatingImg{
-    animation: ImageChange 6s infinite;
-}
-
-
-@keyframes ImageChange {
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
