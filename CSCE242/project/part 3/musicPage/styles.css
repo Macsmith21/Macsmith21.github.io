@@ -31,6 +31,9 @@ padding-bottom: 3px;
 .row section{
     padding-left: 6px;
 }
+row .image{
+    align-self: center;
+}
 #history{
     background-color: #de868f;
     padding: 4px;
