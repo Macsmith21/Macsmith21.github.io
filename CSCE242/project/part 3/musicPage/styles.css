@@ -38,8 +38,11 @@ padding-bottom: 3px;
 }
 #favs{
     background-color: #347caf;;
+    justify-self: flex-end;
 }
-
+#info{
+    align-items: flex-end;
+}
 
 
 
