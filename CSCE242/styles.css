@@ -28,7 +28,9 @@ div
     background-color:#0B04D9;
     padding: 8px;
 }
-
+#assignments{
+    align-content: flex-start;
+}
 
 /* Typography*/
 #name{
@@ -67,6 +69,6 @@ ul{
     }
     .column{
         flex: 1;
-        align-items: flex-start;
+        align-content:space-evenly;
     }
 }
