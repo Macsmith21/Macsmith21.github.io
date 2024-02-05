@@ -39,7 +39,19 @@ footer{
     background-color: green;
     padding: 4px;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
 
+.hide{
+    display: none;
+}
 
 /*typography*/
 #main-nav a{
@@ -54,6 +66,9 @@ footer{
     .flexcontainer{
         display: flex;
     
+    }
+    #hamburger{
+        display: none;
     }
 }
 .col{

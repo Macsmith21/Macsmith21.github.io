@@ -26,6 +26,20 @@ h1{
     padding: 10px;
     margin: auto;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
+
+.hide{
+    display: none;
+}
+
 
 
 
@@ -69,6 +83,9 @@ img{
 @media (min-width: 760px){
     .flexcontainer{
         display:flex;
+    }
+    #hamburger{
+        display: none;
     }
 
 

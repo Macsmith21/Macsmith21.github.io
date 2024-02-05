@@ -36,6 +36,20 @@ footer{
 #games{
     background-color:#de868f ;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
+
+.hide{
+    display: none;
+}
+
 
 /*typography*/
 .col h1{
@@ -57,6 +71,9 @@ footer{
     .flexcontainer, .row{
         display: flex;
     
+    }
+    #hamburger{
+        display: none;
     }
 }
 .col{

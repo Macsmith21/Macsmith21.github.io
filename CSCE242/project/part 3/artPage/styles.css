@@ -47,7 +47,19 @@ padding-bottom: 3px;
     text-align: center;
     padding:4px;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
 
+.hide{
+    display: none;
+}
 
 
 /*Typography*/
@@ -63,4 +75,8 @@ h2{
     .col{
     flex: 1;
     }
+    #hamburger{
+        display: none;
+    }
+    
 }

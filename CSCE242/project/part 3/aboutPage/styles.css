@@ -47,7 +47,19 @@ footer{
     margin: auto;
 
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
 
+.hide{
+    display: none;
+}
 
 
 /*typography*/
@@ -66,11 +78,15 @@ footer{
 
 
 /*resolution / flex*/
-@media(min-width: 760px){
+@media(min-width: 1000px){
     .flexcontainer{
         display: flex;
     
     }
+    #hamburger{
+        display: none;
+    }
+    
 }
 .col{
     flex: 1;

@@ -47,6 +47,19 @@ padding-bottom: 3px;
     font-size: 14px;
     font-weight: 500;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
+
+.hide{
+    display: none;
+}
 
 
 
@@ -61,6 +74,10 @@ h2{
     .flexcontainer, .row{
         display: flex;
     }
+    #hamburger{
+        display: none;
+    }
+    
     .col{
     flex: 1;
     }

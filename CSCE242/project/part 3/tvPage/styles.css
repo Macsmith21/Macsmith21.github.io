@@ -39,6 +39,21 @@ padding-bottom: 3px;
 #favs{
     background-color: #347caf;;
 }
+#hamburger{
+    padding: 8px;
+}
+#hamburger div{
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 6px;
+}
+
+.hide{
+    display: none;
+}
+
+
 
 
 
@@ -55,6 +70,9 @@ h2{
     }
     .col{
     flex: 1;
+    }
+    #hamburger{
+        display: none;
     }
     #favs{
         justify-content: space-evenly;
