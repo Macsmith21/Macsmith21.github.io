@@ -13,7 +13,7 @@ h1{
 }
 
 .linkz{
-    background-color: aqua;
+    background-color: #347caf;
     justify-content: space-evenly;
     align-items: flex-end;
     padding: 75px;
@@ -53,7 +53,7 @@ h1{
 
 }
 #main-nav li{
-    background-color: aqua;
+    background-color: #347caf;
     border: 2px solid black;
     padding: 6px;
     padding-left: 12px;
