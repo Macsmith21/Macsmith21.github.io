@@ -27,11 +27,13 @@ main{
     margin: auto;
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 50%;
-    height: 50%;
+    width: 30%;
+    height: 30%;
     border: 2px solid black;
 }
-
+.hide{
+    display: none;
+}
 
 
 /*Typography*/
@@ -43,6 +45,7 @@ main{
     list-style: none;
     padding-left: 0px;
 }
+
 
 
 
