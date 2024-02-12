@@ -29,6 +29,7 @@ div
     padding: 8px;
 }
 #assignments{
+    margin-top: 0;
     align-content: flex-start;
 }
 
@@ -66,9 +67,11 @@ ul{
 @media (min-width:900px) {
     .container{
         display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
     .column{
         flex: 1;
-        align-content:space-evenly;
+        margin-top: 0px;
     }
 }
