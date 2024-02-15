@@ -20,19 +20,21 @@ header{
 #top5
 {
     flex-direction: column;
-    margin-right: 10%;
     background-color:#de868f;
     padding: 4px;
+    flex: 1;
+    border: 2px solid black;
+    
 }
 .row{
 flex-direction: row;
-padding-top: 3px;
-padding-bottom: 3px;
+padding-top: 45px;
+padding-bottom: 45px;
 }
 .row section{
     padding-left: 6px;
 }
-row .image{
+.row img{
     align-self: center;
 }
 #history{
@@ -52,7 +54,12 @@ row .image{
     justify-self: flex-end;
 }
 #info{
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+   flex: 1;
+   justify-content: space-between;
+   border-top: 2px solid black;
+   border-bottom: 2px solid black;
 }
 #hamburger{
     padding: 8px;
@@ -67,6 +74,9 @@ row .image{
 .hide{
     display: none;
 }
+.decade{
+    padding: 20px;
+}
 
 
 
@@ -75,20 +85,30 @@ row .image{
 h2{
     text-align: center;
 }
-
+#gentitle, #arrow{
+    font-size: 65px;
+    max-height: 0;
+}
+p{
+    padding: 5px;
+}
 /*flex*/
 @media(min-width: 768px){
     .flexcontainer, .row{
         display: flex;
     }
-    .col{
-    flex: 1;
+    .columnflex{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
+
     #hamburger{
         display: none;
     }
     
     #favs{
+        flex-direction: column;
         justify-content: space-evenly;
         align-items:stretch;
     }
