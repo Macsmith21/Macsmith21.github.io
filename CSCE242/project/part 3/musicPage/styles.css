@@ -17,7 +17,8 @@ header{
     padding-left: 24px;
     padding-right: 24px;
 }
-#top5{
+#top5
+{
     flex-direction: column;
     margin-right: 10%;
     background-color:#de868f;
@@ -39,6 +40,13 @@ row .image{
     padding: 4px;
     margin-bottom: 50px;
 }
+#favoritesleft{
+    flex: 1;
+}
+#favoritesright{
+    flex:1;
+}
+
 #favs{
     background-color: #347caf;;
     justify-self: flex-end;
