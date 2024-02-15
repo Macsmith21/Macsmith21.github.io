@@ -1,8 +1,7 @@
 
 const workDiv = document.getElementById("work")
 const yogaDiv = document.getElementById("yoga")
-const balldiv = document.getElementById("ball-holder")
-const startBtn = document.getElementById("ballbutton")
+const Ball = document.getElementById("ball")
 const Hamburger = () =>{
     let burg = document.getElementById("main-nav");
     burg.classList.toggle("hide");
@@ -15,22 +14,16 @@ const Hamburger = () =>{
 
     }
 }
-const bouncer = (e) =>{
-    e.preventDefault();
-    let ballheight = balldiv.getComputedStyle(top);
-    while(ballheight < "70%"){
-       downbounce =  setInterval{ballheight = ballheight+"1%",1000};
-       
-
-    }
-    
-}
 
 
 
 window.onload=()=>
 {
-
+    const bouncer = (e) =>{
+        e.preventDefault();
+        bounceball = setInterval(()=>{Ball.style.top=+5+"px"},1000)
+        bounceball;
+    }
     const divswitch1 = (e) =>
     {
         e.preventDefault();
@@ -53,9 +46,8 @@ window.onload=()=>
 
     }
 
-    yogaSlide.oninput = sliderSwitch
-    CommandLine.onkeyup = imgSwitch
-    document.getElementById("E1").onclick = divswitch1;
-    document.getElementById("E2").onclick = divswitch2;
+    document.getElementById("E1").onclick = divswitch1
+    document.getElementById("E2").onclick = divswitch2
     document.getElementById("dropdown").onclick = Hamburger;
+    document.getElementById("ballBtn").onclick = bouncer;
 };

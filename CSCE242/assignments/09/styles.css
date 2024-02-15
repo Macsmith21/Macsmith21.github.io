@@ -30,23 +30,25 @@ main{
     border:2px solid darkcyan;
     margin-bottom: 20px;
 }
-#ball{
+.column img{
+    align-self: center;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 30%;
+    height: 30%;
+    
+
+}
+#ballImg{
     text-align: center;
     width: 30%;
-}
-#ball-holder{
     position: relative;
-    top: 0%;
-}
+    top: 0px;
 
+}
 .hide{
     display: none;
-}
-#ball-area{
-    height: 750px;
-    background-color: white;
-    border-top: 2px solid black;
-    margin: 5px;
 }
 
 
@@ -77,7 +79,6 @@ main{
 #slider:hover{
     opacity: 100%;
 }
-
 
 
 
