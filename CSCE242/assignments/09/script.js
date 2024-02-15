@@ -1,7 +1,8 @@
 
 const workDiv = document.getElementById("work")
 const yogaDiv = document.getElementById("yoga")
-
+const balldiv = document.getElementById("ball-holder")
+const startBtn = document.getElementById("ballbutton")
 const Hamburger = () =>{
     let burg = document.getElementById("main-nav");
     burg.classList.toggle("hide");
@@ -13,6 +14,16 @@ const Hamburger = () =>{
         document.getElementById("dropdown").innerHTML = "&#9660;"
 
     }
+}
+const bouncer = (e) =>{
+    e.preventDefault();
+    let ballheight = balldiv.getComputedStyle(top);
+    while(ballheight < "70%"){
+       downbounce =  setInterval{ballheight = ballheight+"1%",1000};
+       
+
+    }
+    
 }
 
 
