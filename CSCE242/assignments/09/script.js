@@ -14,14 +14,15 @@ const Hamburger = () =>{
 
     }
 }
-
+let pos = 0;
 
 
 window.onload=()=>
 {
     const bouncer = (e) =>{
         e.preventDefault();
-        bounceball = setInterval(()=>{Ball.style.top=+5+"px"},1000)
+        root = document.querySelector(":root")
+        bounceball = setInterval(()=>{root.style.setProperty("--ball-top",pos +"px"); pos+=3;},100)
         bounceball;
     }
     const divswitch1 = (e) =>
