@@ -43,9 +43,13 @@ main{
     
 
 }
+#ballcontainer{
+    height:600px;
+    background-color: white;
+}
 #ballImg{
     text-align: center;
-    width: 30%;
+    width: 10%;
     position: relative;
     top: var(--ball-top);
 

@@ -15,16 +15,48 @@ const Hamburger = () =>{
     }
 }
 let pos = 0;
-
+let bouncing = false;
+let bouncedown = true
 
 window.onload=()=>
 {
-    const bouncer = (e) =>{
+    const bouncer = (e) =>
+    {
         e.preventDefault();
-        root = document.querySelector(":root")
-        bounceball = setInterval(()=>{root.style.setProperty("--ball-top",pos +"px"); pos+=3;},100)
-        bounceball;
-    }
+        bouncing = !bouncing
+        console.log("clicked")
+        console.log(bouncing)
+        root = document.querySelector(":root");
+        if(bouncing){
+            document.getElementById("ballBtn").innerHTML = "Stop"
+                
+                    bounceball = setInterval(()=>
+                    {
+                        if(bouncedown==true && pos < 500 && bouncing==true){
+                            root.style.setProperty("--ball-top",pos +"px"); pos++;console.log(pos);
+                        } 
+                           if(pos == 500){
+                            console.log(bouncedown)
+                            bouncedown = false;
+                        }
+                        if(bouncedown==false && pos > 0 && bouncing==true){
+                                root.style.setProperty("--ball-top",pos +"px"); pos--;console.log(pos);
+                            }
+                        if(pos == 0){
+                            bouncedown = true;
+                        }
+            
+                
+                     },1)
+                bounceball;
+            }
+        else{
+            document.getElementById("ballBtn").innerHTML = "Start"
+            clearInterval(bounceball);
+        }
+
+     }
+
     const divswitch1 = (e) =>
     {
         e.preventDefault();
