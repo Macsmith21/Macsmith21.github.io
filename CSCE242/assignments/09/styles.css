@@ -44,7 +44,7 @@ main{
 
 }
 #ballcontainer{
-    height:600px;
+    height:650px;
     background-color: white;
 }
 #ballImg{
@@ -86,6 +86,16 @@ main{
 #slider:hover{
     opacity: 100%;
 }
+#desclist{
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+}
+#desclist li{
+list-style: none;
+padding-bottom: 20px;
+
+}
 
 
 
@@ -96,6 +106,13 @@ main{
 @media (min-width:1000px) {
     .container{
         display: flex;    
+}
+.subsection{
+    flex-direction: column;
+}
+.flexcolumncontainer{
+    display: flex;
+    justify-content: space-evenly;
 }
 #dropdown{
     display: none;

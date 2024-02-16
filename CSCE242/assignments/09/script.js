@@ -17,10 +17,7 @@ const Hamburger = () =>{
 let pos = 0;
 let bouncing = false;
 let bouncedown = true
-
-window.onload=()=>
-{
-    const bouncer = (e) =>
+const bouncer = (e) =>
     {
         e.preventDefault();
         bouncing = !bouncing
@@ -52,9 +49,9 @@ window.onload=()=>
             }
         else{
             document.getElementById("ballBtn").innerHTML = "Start"
-            clearInterval(bounceball);
-        }
+            clearInterval(bounceball)
 
+        }
      }
 
     const divswitch1 = (e) =>
@@ -78,9 +75,23 @@ window.onload=()=>
         else;
 
     }
+    const showAlt = (e) =>
+    {
+        const text = e.target.getAttribute("alt")
+        const Listpoint = document.createElement("li")
+        Listpoint.innerHTML = text
+        document.getElementById("desclist").append(Listpoint)
+    }
 
+
+window.onload=()=>
+{
+    
     document.getElementById("E1").onclick = divswitch1
     document.getElementById("E2").onclick = divswitch2
     document.getElementById("dropdown").onclick = Hamburger;
     document.getElementById("ballBtn").onclick = bouncer;
+    document.querySelectorAll("#poses li").forEach((li) => { li.onclick=showAlt;
+
+    })
 };
