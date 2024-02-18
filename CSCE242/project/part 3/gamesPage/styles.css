@@ -14,6 +14,7 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+    border-bottom: 2px solid black;
 }
 footer{
     margin: none;

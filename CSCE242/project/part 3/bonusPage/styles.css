@@ -6,6 +6,7 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+    border-bottom: 2px solid black;
 }li{
     list-style: none;
 }
@@ -13,6 +14,7 @@ a{
     text-decoration: none;
     color: black;
 }
+
 footer{
     margin: none;
     max-height:fit-content;
