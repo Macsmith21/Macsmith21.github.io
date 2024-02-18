@@ -26,6 +26,13 @@ header{
     border: 2px solid black;
     
 }
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
 #subhead{
     padding-left: 5px;
 }

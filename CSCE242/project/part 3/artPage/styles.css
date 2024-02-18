@@ -7,6 +7,13 @@ header{
     background-color: #347caf;
     padding: 4px;
 }
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
 #main-nav li{
     list-style: none;
     background-color: antiquewhite;

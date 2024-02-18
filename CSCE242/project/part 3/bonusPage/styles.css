@@ -6,6 +6,12 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+}li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 footer{
     margin: none;
