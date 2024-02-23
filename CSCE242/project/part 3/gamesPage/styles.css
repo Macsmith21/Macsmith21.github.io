@@ -65,6 +65,7 @@ footer{
 }
 .col{
     padding: 12px;
+    border: 1px solid black;
 }
 
 #main-nav a{
