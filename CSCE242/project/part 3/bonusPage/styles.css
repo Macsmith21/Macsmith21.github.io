@@ -24,6 +24,7 @@ footer{
     text-align: center;
     border-top: 1px solid black;
 }
+
 #main-nav li{
     list-style: none;
     background-color: antiquewhite;
@@ -43,6 +44,10 @@ footer{
     border-radius: 4px;
     padding-left: 24px;
     padding-right: 24px;
+}
+#bot-nav{
+text-align: center;
+margin: auto;
 }
 #topleft{
     background-color: yellowgreen;
