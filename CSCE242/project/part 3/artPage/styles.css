@@ -9,6 +9,14 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+    border-bottom: 2px solid black;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 #main-nav li{
     list-style: none;

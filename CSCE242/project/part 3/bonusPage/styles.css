@@ -6,7 +6,18 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+    border-bottom: 2px solid black;
+}li{
+    list-style: none;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+#topleft, #botleft, #topright, #botright{
+    border: 1px solid black;
+}
+
 footer{
     margin: none;
     max-height:fit-content;
@@ -14,6 +25,16 @@ footer{
     border-top: 1px solid black;
 }
 #main-nav li{
+    list-style: none;
+    background-color: antiquewhite;
+    border: 4px solid black;
+    margin: 4px;
+    padding: 6px;
+    border-radius: 4px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+#bot-nav li{
     list-style: none;
     background-color: antiquewhite;
     border: 4px solid black;
@@ -59,7 +80,11 @@ footer{
     color: black;
     font-weight: 500;
 }
-
+#bot-nav a{
+    text-decoration:none;
+    color: black;
+    font-weight: 500;
+}
 
 /*resolution / flex*/
 @media(min-width: 760px){

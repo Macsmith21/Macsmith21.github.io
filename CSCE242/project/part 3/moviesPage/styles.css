@@ -6,6 +6,7 @@ header{
     justify-content: space-between;
     background-color: #347caf;
     padding: 4px;
+    border-bottom: 2px solid black;
 }
 #main-nav li{
     list-style: none;
@@ -25,6 +26,13 @@ header{
     flex: 1;
     border: 2px solid black;
     
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 #subhead{
     padding-left: 5px;
