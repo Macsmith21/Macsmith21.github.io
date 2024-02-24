@@ -34,7 +34,12 @@ footer{
     padding-left: 24px;
     padding-right: 24px;
 }
-
+footer{
+    margin: none;
+    max-height:fit-content;
+    border-top: 1px solid black;
+    justify-content: center;
+}
 #topleft{
     background-color: yellowgreen;
     padding: 4px;

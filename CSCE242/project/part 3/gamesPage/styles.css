@@ -21,7 +21,9 @@ footer{
     max-height:fit-content;
     border-top: 1px solid black;
     text-align: center;
+    justify-content: center;
 }
+
 #bot-nav a{
     text-decoration:none;
     color: black;

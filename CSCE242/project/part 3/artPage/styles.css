@@ -11,6 +11,12 @@ header{
     padding: 4px;
     border-bottom: 2px solid black;
 }
+footer{
+    margin: none;
+    max-height:fit-content;
+    border-top: 1px solid black;
+    justify-content: center;
+}
 #bot-nav a{
     text-decoration:none;
     color: black;

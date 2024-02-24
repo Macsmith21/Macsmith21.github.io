@@ -5,6 +5,12 @@ body{
     margin-bottom: none;
 
 }
+footer{
+    margin: none;
+    max-height:fit-content;
+    border-top: 1px solid black;
+    justify-content: center;
+}
 #bot-nav a{
     text-decoration:none;
     color: black;
@@ -31,6 +37,7 @@ footer{
     max-height:fit-content;
     text-align: center;
     border-top: 1px solid black;
+    justify-content: center;
 }
 #main-nav li{
     list-style: none;

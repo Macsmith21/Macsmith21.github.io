@@ -20,6 +20,12 @@ header{
     color: black;
     font-weight: 500;
 }
+footer{
+    margin: none;
+    max-height:fit-content;
+    border-top: 1px solid black;
+    justify-content: center;
+}
 #bot-nav li{
     list-style: none;
     background-color: antiquewhite;
