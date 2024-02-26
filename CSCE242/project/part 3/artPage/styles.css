@@ -54,8 +54,8 @@ a{
 }
 .row{
 flex-direction: row;
-padding-top: 3px;
-padding-bottom: 3px;
+padding-top: 10px;
+padding-bottom: 100px;
 }
 .row section{
     padding-left: 6px;
@@ -87,6 +87,9 @@ padding-bottom: 3px;
     height: 4px;
     background-color: black;
     margin: 6px;
+}
+#info{
+    display: block
 }
 
 .hide{

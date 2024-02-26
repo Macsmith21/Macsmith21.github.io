@@ -7,7 +7,8 @@ header{
     background-color: #347caf;
     padding: 4px;
     border-bottom: 2px solid black;
-}li{
+}
+li{
     list-style: none;
 }
 a{
@@ -17,7 +18,12 @@ a{
 #topleft, #botleft, #topright, #botright{
     border: 1px solid black;
 }
-
+p{
+    padding: 12px;
+}
+h2{
+    padding: 6px;
+}
 footer{
     margin: none;
     max-height:fit-content;
