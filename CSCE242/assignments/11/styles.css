@@ -12,7 +12,11 @@ header{
 .subsect img{
     border: 4px solid white;
 }
-    
+.modal{
+    background-color: white;
+    display: none;
+    padding: 4px;
+}
 
 @media (min-width:900px) {
     .flexcontainer{

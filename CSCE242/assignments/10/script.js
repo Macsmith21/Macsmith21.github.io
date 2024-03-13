@@ -34,4 +34,3 @@ window.onload = images.forEach(makeImg =>{
     imgSect.appendChild(desc)
     desc.appendChild(attr)
 })
-
