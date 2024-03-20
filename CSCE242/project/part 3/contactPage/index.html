@@ -22,17 +22,27 @@
         </nav>
         </header>
         <main>
-           <div id="mainbox">
-            <h2>Name</h2>
-            <input type="text">
-            <h2>Email</h2>
-            <input type="email" name="" id="email">
-            <h2>Message</h2>
-            <input type="text" id="message">
-            <br>
-            <button>send </button>
+            <!-- Form with improved structure and validation -->
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-           </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+            <div id="formFeedback"></div> <!-- Placeholder for feedback messages -->
+
+            <!-- Responsive IFrame -->
+            <div class="responsive-iframe">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+
         </main>
         <footer class="flexcontainer">
             <ul class="flexcontainer hide" id="bot-nav">
