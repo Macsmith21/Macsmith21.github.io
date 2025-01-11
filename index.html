@@ -1,31 +1,60 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
-    <title>Mac Smith 03</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<div id="main-div">
 <body>
-    <header>
-        <h1>Mac Smith</h1>
-        <h2>Classes</h2>
-        <nav id="main-nav">
-            <ul>
-                <li><a href="./CSCE242/index.html">CSCE242</a></li>
-            </ul>
-        </nav>
+  <div class="App">
+    <!-- Header Section -->
+    <header class="App-header">
+      <h1>Mac Smith</h1>
+      <p>Welcome to my github.io landing page</p>
     </header>
-        <main id="Content">
-            <div class="flex-container">
-                <section class="col1 column">
 
-                </section>
-                
-                </section>
-            </div>
-        </main>
-    <footer>
-        <p>&copy; Mac Smith</p>
+    <!-- About Me Section -->
+    <section class="About">
+      <h2>About Me</h2>
+      <p>I am an analyst, coder, and passionate computer user. I graduated from the University of South Carolina with a degree in finance and a minor and computer science. Find below my LinkedIn, web applications class projects, and my resume.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="Projects">
+      <h2>Links</h2>
+      <div class="Project-list">
+        <div class="Project-item">
+       
+          <h3><a href="./CSCE242/index.html">CSCE 242 Page</a></h3>
+        </div>
+        <div class="Project-item">
+  
+          <h3><a href="https://www.linkedin.com/in/theodoremsmith/">Theodore M Smith</a></h3>
+        </div>
+        <div class="Project-item">
+         
+          <h3><a href="./resume.pdf">Find My Resume Here</a></h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="Contact">
+      <h2>Get in Touch</h2>
+      <form class="Contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="Footer">
+      <p>&copy; 2025 My Portfolio. All rights reserved.</p>
     </footer>
+  </div>
+  <script src="script.js"></script>
 </body>
-</div>
+</html>
