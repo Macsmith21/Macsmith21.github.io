@@ -9,8 +9,9 @@ body {
   .App-header {
     text-align: center;
     padding: 50px;
-    background: #4a90e2;
-    color: #fff;
+    background-image: url('https://i.pinimg.com/originals/e0/ef/68/e0ef68aa7168ea3bd15df32d321ebeda.gif');
+    color: #4a90e2;
+    text-shadow: #222;
   }
   
   .App-header h1 {
