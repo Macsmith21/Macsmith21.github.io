@@ -121,7 +121,7 @@ export const resume = {
     {
       title: "Home lab",
       org: "Self-hosted Linux server",
-      place: "Home lab",
+      place: "Personal",
       dates: "2026",
       points: [
         "Run a home media server.",

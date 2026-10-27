@@ -236,7 +236,7 @@ a.social:hover {
 
 .entries {
   display: grid;
-  gap: 24px;
+  gap: 32px;
 }
 
 .entry__top {
@@ -263,9 +263,9 @@ a.social:hover {
 }
 
 .entry__points {
-  margin-top: 8px;
+  margin-top: 10px;
   display: grid;
-  gap: 4px;
+  gap: 12px;
 }
 
 .entry__points li {
@@ -277,10 +277,12 @@ a.social:hover {
   content: "";
   position: absolute;
   left: 2px;
-  top: 0.72em;
-  width: 6px;
-  height: 1.5px;
-  background: var(--muted);
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text);
+  opacity: 0.45;
 }
 
 .skill-groups {
