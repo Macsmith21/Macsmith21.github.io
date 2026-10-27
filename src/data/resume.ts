@@ -119,12 +119,13 @@ export const resume = {
       ],
     },
     {
-      title: "Home media server",
-      org: "Self-hosted Linux box",
-      place: "Home lab",
+      title: "Home lab",
+      org: "Self-hosted Linux server",
+      place: "Personal",
       dates: "2026",
       points: [
-        "Pooled multiple SSDs into one library with mergerfs and run Jellyfin, Audiobookshelf, and automated media management behind a VPN.",
+        "Run a home media server.",
+        "Host a dedicated Counter-Strike 2 game server for friends.",
       ],
     },
     {
