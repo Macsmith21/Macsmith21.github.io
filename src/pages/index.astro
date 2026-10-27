@@ -56,16 +56,26 @@ const year = new Date().getFullYear();
         {resumePdf && <a class="pill" href={resumePdf}>Download PDF</a>}
       </div>
       <ResumeBlock heading="Experience" entries={resume.experience} />
+      <ResumeBlock heading="Projects" entries={resume.projects} />
       <ResumeBlock heading="Education" entries={resume.education} />
       {
         resume.skills.length > 0 && (
           <div class="resume-block">
             <h3 class="resume-block__heading">Skills</h3>
-            <ul class="tags">
+            <dl class="skill-groups">
               {resume.skills.map((skill) => (
-                <li>{skill}</li>
+                <div class="skill-group">
+                  <dt>{skill.group}</dt>
+                  <dd>
+                    <ul class="tags">
+                      {skill.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </div>
         )
       }

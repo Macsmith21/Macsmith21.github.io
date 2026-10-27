@@ -6,20 +6,29 @@ export type ResumeEntry = {
   points: string[];
 };
 
+export type SkillGroup = {
+  group: string;
+  items: string[];
+};
+
 export const resume = {
   pdf: "",
 
   experience: [
     {
-      title: "Intern / Analyst",
+      title: "Analyst",
       org: "Vista Site Selection",
       place: "Columbus, OH",
       dates: "May 2023 – Present",
       points: [
-        "Created 20+ dashboards and geo-visuals for clients to view data on properties and industries.",
-        "Led development of the proprietary Compliance Reporting Tool.",
-        "Scraped, cleaned, and organized 10+ large-scale datasets across projects.",
-        "Pioneered company geo-server hosting and a proprietary map hosting service.",
+        "Led the company's adoption of AI: taught the data team APIs, AI tools, and AI-assisted development, and built a multi-agent AI system that plans, codes, reviews, and ships work across the company's repos.",
+        "Replaced Tableau and ArcGIS with in-house web dashboards, a company geo-server, and proprietary map hosting.",
+        "Ran production and staging servers end to end: Linux administration, systemd services, deployments, a branch-based promote-to-production pipeline, and infrastructure-as-code in a single source-of-truth repo.",
+        "Secured client dashboards and internal tools behind Cloudflare Access single sign-on, locked servers to a private Tailscale network, and managed secrets with encrypted, version-controlled config.",
+        "Helped redesign the company website and led its migration from Wix to Cloudflare Pages with CI/CD, scheduled publishing, and bot protection.",
+        "Administered PostgreSQL databases, including roles, access grants, and the data contracts behind client apps.",
+        "Built and automated large-scale data pulls feeding client research across aerospace and defense, retail, and mixed-use development projects.",
+        "Built authentication, admin tools, and Stripe billing for a client-facing segmentation app, contributed to Vista's in-house spatial-intelligence platform, and led development of the Compliance Reporting Tool.",
       ],
     },
     {
@@ -62,20 +71,56 @@ export const resume = {
   ] as ResumeEntry[],
 
   skills: [
-    "Python",
-    "SQL",
-    "R",
-    "Java",
-    "JavaScript",
-    "HTML / CSS",
-    "Unix",
-    "QGIS",
-    "ArcGIS Pro",
-    "Alteryx",
-    "Tableau",
-    "Power BI",
-    "Excel / Power Query",
-  ],
+    {
+      group: "AI",
+      items: ["AI-assisted development", "Multi-agent systems", "Claude Code", "LLM APIs", "Prompt and workflow design"],
+    },
+    {
+      group: "Data",
+      items: ["Python", "SQL", "PostgreSQL", "DuckDB", "R", "Web scraping", "API integration", "Alteryx", "Excel / Power Query"],
+    },
+    {
+      group: "Maps and BI",
+      items: ["QGIS", "ArcGIS Pro", "Web mapping", "Tableau", "Power BI"],
+    },
+    {
+      group: "Infrastructure",
+      items: ["Linux", "Unix", "systemd", "Cloudflare (Pages, Access, Workers)", "Tailscale", "CI/CD", "GitHub Actions", "Secrets management"],
+    },
+    {
+      group: "Web and code",
+      items: ["Git / GitHub", "JavaScript / TypeScript", "Node.js", "Next.js", "Astro", "HTML / CSS", "Java", "Auth0", "Stripe"],
+    },
+  ] as SkillGroup[],
+
+  projects: [
+    {
+      title: "Personal AI agent system",
+      org: "Hub-and-spoke Claude Code agents",
+      place: "GitHub",
+      dates: "2026",
+      points: [
+        "Designed a routing hub plus specialist agents for coding, infrastructure, data analysis, research, review, and email, each with scoped tools and guardrails.",
+        "Built in rules for review before merge, read-only lanes, and model fallback, versioned and installed from one repo.",
+      ],
+    },
+    {
+      title: "Home media server",
+      org: "Self-hosted Linux box",
+      place: "Home lab",
+      dates: "2026",
+      points: [
+        "Pooled multiple SSDs into one library with mergerfs and run Jellyfin, Audiobookshelf, and automated media management behind a VPN.",
+      ],
+    },
+    {
+      title: "Personal website",
+      org: "macsmith21.github.io",
+      place: "GitHub Pages",
+      dates: "2026",
+      points: ["This site: Astro, built with AI-assisted development, deployed by GitHub Actions."],
+    },
+  ] as ResumeEntry[],
 
   community: [
     {

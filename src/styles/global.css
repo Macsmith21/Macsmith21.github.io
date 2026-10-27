@@ -283,6 +283,35 @@ a.social:hover {
   background: var(--muted);
 }
 
+.skill-groups {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.skill-group dt {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.skill-group dd {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .skill-group {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
