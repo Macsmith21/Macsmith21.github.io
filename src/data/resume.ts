@@ -16,12 +16,14 @@ export const resume = {
 
   experience: [
     {
-      title: "Analyst",
+      title: "Data Scientist and AI Czar",
       org: "Vista Site Selection",
       place: "Columbus, OH",
       dates: "May 2023 – Present",
       points: [
-        "Led the company's adoption of AI: taught the data team APIs, AI tools, and AI-assisted development, and built a multi-agent AI system that plans, codes, reviews, and ships work across the company's repos.",
+        "Company AI Czar: led Vista's adoption of AI, trained 3 teammates on APIs, AI tools, and AI-assisted development with a company-wide rollout underway, and built a multi-agent AI system that plans, codes, reviews, and ships work.",
+        "Shipped 330+ merged pull requests across 23 company repositories in 2026, spanning client dashboards, data apps, the core platform, and infrastructure.",
+        "Consulted on 20+ winning applications to Ohio's Transformational Mixed-Use Development (TMUD) tax credit program.",
         "Replaced Tableau and ArcGIS with in-house web dashboards, a company geo-server, and proprietary map hosting.",
         "Ran production and staging servers end to end: Linux administration, systemd services, deployments, a branch-based promote-to-production pipeline, and infrastructure-as-code in a single source-of-truth repo.",
         "Secured client dashboards and internal tools behind Cloudflare Access single sign-on, locked servers to a private Tailscale network, and managed secrets with encrypted, version-controlled config.",
