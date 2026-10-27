@@ -1,0 +1,39 @@
+---
+import type { ResumeEntry } from "../data/resume";
+
+type Props = {
+  heading: string;
+  entries: ResumeEntry[];
+};
+
+const { heading, entries } = Astro.props;
+---
+
+{
+  entries.length > 0 && (
+    <div class="resume-block">
+      <h3 class="resume-block__heading">{heading}</h3>
+      <ol class="entries">
+        {entries.map((entry) => (
+          <li class="entry">
+            <div class="entry__top">
+              <p class="entry__title">{entry.title}</p>
+              <p class="entry__dates">{entry.dates}</p>
+            </div>
+            <p class="entry__org">
+              {entry.org}
+              <span class="entry__place"> · {entry.place}</span>
+            </p>
+            {entry.points.length > 0 && (
+              <ul class="entry__points">
+                {entry.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}

@@ -1,0 +1,146 @@
+---
+import Base from "../layouts/Base.astro";
+import Portrait from "../components/Portrait.astro";
+import ResumeBlock from "../components/ResumeBlock.astro";
+import { profile } from "../data/profile";
+import { resume } from "../data/resume";
+import { coursework } from "../data/coursework";
+import { work } from "../data/work";
+import { socialIcons, socialOrder } from "../lib/icons";
+import { isPresent, publicFileExists } from "../lib/assets";
+
+const showPlaceholders = import.meta.env.DEV;
+const socials = socialOrder
+  .map((key) => ({ key, href: profile.links[key], ...socialIcons[key] }))
+  .filter((item) => isPresent(item.href) || showPlaceholders);
+const resumePdf = publicFileExists(resume.pdf) ? resume.pdf : null;
+const ogImage = publicFileExists(profile.photo.src) ? profile.photo.src : null;
+const year = new Date().getFullYear();
+---
+
+<Base title={profile.name} description={profile.tagline} image={ogImage}>
+  <main class="page">
+    <header class="hero">
+      <Portrait src={profile.photo.src} alt={profile.photo.alt} name={profile.name} />
+      <h1 class="hero__name">{profile.name}</h1>
+      <p class="hero__tagline">{profile.tagline}</p>
+      <p class="hero__location">{profile.location}</p>
+      <nav class="socials" aria-label="Profiles">
+        {
+          socials.map((item) =>
+            isPresent(item.href) ? (
+              <a
+                class="social"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer me"
+                aria-label={item.label}
+                title={item.label}
+                style={`--brand: ${item.brand}`}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d={item.path} /></svg>
+              </a>
+            ) : (
+              <span class="social social--empty" title={`${item.label}: add link in src/data/profile.ts`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d={item.path} /></svg>
+              </span>
+            ),
+          )
+        }
+      </nav>
+    </header>
+
+    <section class="section" id="resume" aria-labelledby="resume-heading">
+      <div class="section__head">
+        <h2 id="resume-heading">Resume</h2>
+        {resumePdf && <a class="pill" href={resumePdf}>Download PDF</a>}
+      </div>
+      <ResumeBlock heading="Experience" entries={resume.experience} />
+      <ResumeBlock heading="Projects" entries={resume.projects} />
+      <ResumeBlock heading="Education" entries={resume.education} />
+      {
+        resume.skills.length > 0 && (
+          <div class="resume-block">
+            <h3 class="resume-block__heading">Skills</h3>
+            <dl class="skill-groups">
+              {resume.skills.map((skill) => (
+                <div class="skill-group">
+                  <dt>{skill.group}</dt>
+                  <dd>
+                    <ul class="tags">
+                      {skill.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )
+      }
+      <ResumeBlock heading="Community" entries={resume.community} />
+    </section>
+
+    {
+      work.length > 0 && (
+        <section class="section" id="work" aria-labelledby="work-heading">
+          <div class="section__head">
+            <h2 id="work-heading">Relevant Work</h2>
+          </div>
+          <ul class="featured">
+            {work.map((item) => (
+              <li>
+                <a class="feature" href={item.href} target="_blank" rel="noopener noreferrer">
+                  <span class="browser">
+                    <span class="browser__bar" aria-hidden="true">
+                      <span class="browser__dots"><i /><i /><i /></span>
+                      <span class="browser__url">{new URL(item.href).hostname.replace(/^www\./, "")}</span>
+                    </span>
+                    <img src={item.image} alt={`${item.title} homepage`} loading="lazy" decoding="async" width="1440" height="900" />
+                  </span>
+                  <span class="feature__body">
+                    <span class="feature__top">
+                      <span class="feature__title">{item.title}</span>
+                      <span class="feature__visit" aria-hidden="true">Visit ↗</span>
+                    </span>
+                    <span class="feature__role">{item.role}</span>
+                    <span class="feature__blurb">{item.blurb}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section class="section" id="csce242" aria-labelledby="csce-heading">
+      <div class="section__head">
+        <h2 id="csce-heading">{coursework.course}</h2>
+        <a class="pill" href={coursework.all}>All work</a>
+      </div>
+      <p class="section__lede">{coursework.summary}</p>
+      <ul class="work-grid">
+        {
+          coursework.highlights.map((item) => (
+            <li>
+              <a class="work" href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+                <span class="work__thumb">
+                  <img src={item.image} alt="" loading="lazy" decoding="async" />
+                </span>
+                <span class="work__title">{item.title}</span>
+                <span class="work__blurb">{item.blurb}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <span>© {year} {profile.name}</span>
+    </footer>
+  </main>
+</Base>

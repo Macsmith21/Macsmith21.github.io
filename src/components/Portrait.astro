@@ -1,0 +1,28 @@
+---
+import { publicFileExists } from "../lib/assets";
+
+type Props = {
+  src: string;
+  alt: string;
+  name: string;
+};
+
+const { src, alt, name } = Astro.props;
+const hasPhoto = publicFileExists(src);
+const initials = name
+  .split(/\s+/)
+  .map((part) => part[0] ?? "")
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<div class="portrait">
+  {
+    hasPhoto ? (
+      <img src={src} alt={alt} width="320" height="320" decoding="async" fetchpriority="high" />
+    ) : (
+      <span class="portrait__initials" role="img" aria-label={alt}>{initials}</span>
+    )
+  }
+</div>
