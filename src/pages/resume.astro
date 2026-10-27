@@ -1,0 +1,266 @@
+---
+import "@fontsource-variable/outfit/index.css";
+import { profile } from "../data/profile";
+import { resume, type ResumeEntry } from "../data/resume";
+
+const site = (Astro.site?.host ?? "macsmith21.github.io").replace(/^www\./, "");
+const linkedin = profile.links.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+const blocks: Array<{ heading: string; entries: ResumeEntry[] }> = [
+  { heading: "Experience", entries: resume.experience },
+  { heading: "Projects", entries: resume.projects },
+  { heading: "Education", entries: resume.education },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{profile.name} · Resume</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <article class="sheet">
+      <header class="head">
+        <h1>{profile.name}</h1>
+        <p class="contact">
+          <span>{profile.location}</span>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a href={profile.links.linkedin}>{linkedin}</a>
+          <a href={`https://${site}`}>{site}</a>
+        </p>
+      </header>
+
+      {
+        blocks.map((block) =>
+          block.entries.length > 0 && (
+            <section class:list={[{ keep: block.heading !== "Experience" }]}>
+              <h2>{block.heading}</h2>
+              {block.entries.map((entry) => (
+                <div class="entry">
+                  <div class="row">
+                    <p>
+                      <strong>{entry.title}</strong>
+                      <span class="org"> · {entry.org}</span>
+                    </p>
+                    <p class="dates">{entry.dates}</p>
+                  </div>
+                  {entry.points.length > 0 && (
+                    <ul>
+                      {entry.points.map((point) => (
+                        <li>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </section>
+          ),
+        )
+      }
+
+      <section class="keep">
+        <h2>Skills</h2>
+        <dl class="skills">
+          {
+            resume.skills.map((group) => (
+              <div>
+                <dt>{group.group}</dt>
+                <dd>{group.items.join(", ")}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      {
+        resume.community.length > 0 && (
+          <section class="keep">
+            <h2>Community</h2>
+            {resume.community.map((entry) => (
+              <div class="entry">
+                <div class="row">
+                  <p>
+                    <strong>{entry.title}</strong>
+                    <span class="org"> · {entry.org}</span>
+                  </p>
+                  <p class="dates">{entry.dates}</p>
+                </div>
+                {entry.points.length > 0 && (
+                  <ul>
+                    {entry.points.map((point) => (
+                      <li>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </section>
+        )
+      }
+    </article>
+  </body>
+</html>
+
+<style is:global>
+  @page {
+    size: letter;
+    margin: 0.5in 0.55in;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: #e9e9e6;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Outfit Variable", system-ui, sans-serif;
+    color: #111113;
+    font-size: 9.6pt;
+    line-height: 1.38;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    background: #fff;
+    max-width: 8.5in;
+    margin: 24px auto;
+    padding: 0.5in 0.55in;
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.12);
+  }
+
+  @media print {
+    html {
+      background: #fff;
+    }
+    .sheet {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      max-width: none;
+    }
+  }
+
+  h1,
+  h2,
+  p,
+  ul,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .head {
+    padding-bottom: 8pt;
+    border-bottom: 1.2pt solid #111113;
+    margin-bottom: 4pt;
+  }
+
+  h1 {
+    font-size: 24pt;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .contact {
+    margin-top: 4pt;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2pt 14pt;
+    color: #4a4a50;
+  }
+
+  section {
+    margin-top: 10pt;
+  }
+
+  .keep {
+    break-inside: avoid;
+  }
+
+  h2 {
+    break-after: avoid;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #6b6b70;
+    padding-bottom: 2pt;
+    border-bottom: 0.6pt solid #d8d8d4;
+    margin-bottom: 6pt;
+  }
+
+  .entry {
+    break-inside: avoid;
+  }
+
+  .entry + .entry {
+    margin-top: 6pt;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12pt;
+  }
+
+  .row strong {
+    font-weight: 600;
+  }
+
+  .org {
+    color: #4a4a50;
+  }
+
+  .dates {
+    flex-shrink: 0;
+    color: #6b6b70;
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul {
+    margin-top: 2pt;
+    padding-left: 12pt;
+  }
+
+  li {
+    padding-left: 1pt;
+  }
+
+  li + li {
+    margin-top: 1pt;
+  }
+
+  li::marker {
+    color: #8a8a90;
+  }
+
+  .skills {
+    display: grid;
+    gap: 2pt;
+  }
+
+  .skills div {
+    display: grid;
+    grid-template-columns: 1.05in 1fr;
+    gap: 8pt;
+  }
+
+  .skills dt {
+    font-weight: 600;
+  }
+</style>

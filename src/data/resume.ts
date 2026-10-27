@@ -12,14 +12,14 @@ export type SkillGroup = {
 };
 
 export const resume = {
-  pdf: "",
+  pdf: "/resume.pdf",
 
   experience: [
     {
       title: "Data Scientist and AI Czar",
       org: "Vista Site Selection",
       place: "Columbus, OH",
-      dates: "May 2023 – Present",
+      dates: "May 2024 – Present",
       points: [
         "Company AI Czar: led Vista's adoption of AI, trained 3 teammates on APIs, AI tools, and AI-assisted development with a company-wide rollout underway, and built a multi-agent AI system that plans, codes, reviews, and ships work.",
         "Shipped 330+ merged pull requests across 23 company repositories in 2026, spanning client dashboards, data apps, the core platform, and infrastructure.",
@@ -30,7 +30,19 @@ export const resume = {
         "Helped redesign the company website and led its migration from Wix to Cloudflare Pages with CI/CD, scheduled publishing, and bot protection.",
         "Administered PostgreSQL databases, including roles, access grants, and the data contracts behind client apps.",
         "Built and automated large-scale data pulls feeding client research across aerospace and defense, retail, and mixed-use development projects.",
-        "Built authentication, admin tools, and Stripe billing for a client-facing segmentation app, contributed to Vista's in-house spatial-intelligence platform, and led development of the Compliance Reporting Tool.",
+        "Built authentication, admin tools, and Stripe billing for a client-facing segmentation app launching to paying customers, and contributed to Vista's in-house spatial-intelligence platform.",
+      ],
+    },
+    {
+      title: "Data Analyst Intern",
+      org: "Vista Site Selection",
+      place: "Columbus, OH",
+      dates: "May 2023 – May 2024",
+      points: [
+        "Created 20+ dashboards and geo-visuals giving clients a view of property and industry data.",
+        "Led development of the proprietary Compliance Reporting Tool.",
+        "Scraped, cleaned, and organized 10+ large-scale datasets across client projects.",
+        "Pioneered the company's geo-server and proprietary map hosting service.",
       ],
     },
     {
