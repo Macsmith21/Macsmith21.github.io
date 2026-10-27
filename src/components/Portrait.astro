@@ -1,0 +1,25 @@
+---
+import { publicFileExists } from "../lib/assets";
+
+type Props = {
+  src: string;
+  alt: string;
+  initials: string;
+};
+
+const { src, alt, initials } = Astro.props;
+const hasPhoto = publicFileExists(src);
+---
+
+<figure class:list={["portrait", { "portrait--photo": hasPhoto }]}>
+  {
+    hasPhoto ? (
+      <img src={src} alt={alt} width="800" height="1000" decoding="async" fetchpriority="high" />
+    ) : (
+      <div class="monogram" role="img" aria-label={`${initials} monogram`}>
+        <span class="monogram__letters" aria-hidden="true">{initials}</span>
+        <span class="monogram__coords" aria-hidden="true">40.0992° N<br />83.1141° W</span>
+      </div>
+    )
+  }
+</figure>

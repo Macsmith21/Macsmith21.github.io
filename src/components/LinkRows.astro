@@ -1,0 +1,31 @@
+---
+import type { LinkRow } from "../lib/links";
+
+type Props = {
+  items: LinkRow[];
+  compact?: boolean;
+};
+
+const { items, compact = false } = Astro.props;
+---
+
+<ul class:list={["rows", { "rows--compact": compact }]}>
+  {
+    items.map((item) => (
+      <li>
+        <a
+          class="rows__link"
+          href={item.href}
+          {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          <span class="rows__label">{item.label}</span>
+          <span class="rows__detail">{item.detail}</span>
+          <span class="rows__arrow" aria-hidden="true">
+            {item.external ? "↗" : "→"}
+          </span>
+          {item.external && <span class="sr-only">(opens in a new tab)</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,330 @@
+---
+import Base from "../layouts/Base.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Portrait from "../components/Portrait.astro";
+import SectionHead from "../components/SectionHead.astro";
+import LinkRows from "../components/LinkRows.astro";
+import { compactRows, localLink, present, row } from "../lib/links";
+import { profile } from "../data/profile";
+import { isPresent, publicFileExists } from "../lib/assets";
+import { fetchLetterboxdDiary, resolveLetterboxdUsername } from "../lib/letterboxd";
+import { appleMusicEmbedUrl, spotifyEmbedUrl } from "../lib/music";
+
+const { links } = profile;
+const initials = profile.name
+  .split(/\s+/)
+  .map((part) => part.charAt(0))
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+
+const resumeHref = localLink(links.resume);
+const workRows = compactRows([
+  row("Resume", resumeHref, "PDF, one page"),
+  row("LinkedIn", present(links.linkedin)),
+  row("GitHub", present(links.github)),
+  row("Email", isPresent(profile.email) ? `mailto:${profile.email}` : null, profile.email),
+]);
+
+const letterboxdUsername = resolveLetterboxdUsername(profile.letterboxdUsername);
+const diary = await fetchLetterboxdDiary(letterboxdUsername, 8);
+const letterboxdProfile =
+  present(links.letterboxd) ??
+  (letterboxdUsername ? `https://letterboxd.com/${letterboxdUsername}/` : null);
+
+const musicPicks = profile.music
+  .filter((pick) => isPresent(pick.title) && isPresent(pick.artist))
+  .map((pick) => {
+    const spotifyEmbed = spotifyEmbedUrl(pick.spotify);
+    const appleEmbed = spotifyEmbed ? null : appleMusicEmbedUrl(pick.appleMusic);
+    return {
+      ...pick,
+      embed: spotifyEmbed ?? appleEmbed,
+      embedLabel: spotifyEmbed ? "Spotify" : "Apple Music",
+      embedKind: spotifyEmbed ? "spotify" : "apple",
+    };
+  });
+const musicProfileRows = compactRows([
+  row("Spotify", present(links.spotify), "Profile"),
+  row("Apple Music", present(links.appleMusic), "Profile"),
+]);
+
+const gallery = profile.photos.gallery.filter(
+  (photo) => publicFileExists(photo.src) && isPresent(photo.alt),
+);
+
+const moreRows = compactRows([
+  row("Goodreads", present(links.goodreads)),
+  row("Strava", present(links.strava)),
+  row("Instagram", present(links.instagram)),
+  diary.length === 0 ? row("Letterboxd", letterboxdProfile) : null,
+  ...(musicPicks.length === 0 ? musicProfileRows : []),
+  row("CSCE 242", localLink(links.coursework), "Web apps coursework, USC"),
+]);
+
+const sections = [
+  { id: "about", title: "About", show: profile.bio.some(isPresent) },
+  { id: "work", title: "Work", show: workRows.length > 0 },
+  { id: "film", title: "Film", show: diary.length > 0 },
+  { id: "music", title: "Music", show: musicPicks.length > 0 },
+  { id: "photos", title: "Photos", show: gallery.length > 0 },
+  { id: "more", title: "More", show: moreRows.length > 0 },
+].filter((section) => section.show);
+
+const indexOf = (id: string) => sections.findIndex((section) => section.id === id) + 1;
+const has = (id: string) => indexOf(id) > 0;
+
+const year = new Date().getFullYear();
+const builtOn = new Date().toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "America/New_York",
+});
+const portraitExists = publicFileExists(profile.photos.portrait);
+const description = `${profile.name}. ${profile.oneLiner} ${profile.location}.`;
+const [firstName, ...restName] = profile.name.split(" ");
+---
+
+<Base title={profile.name} description={description} image={portraitExists ? profile.photos.portrait : null}>
+  <div class="backdrop" aria-hidden="true"><div class="glow"></div></div>
+  <header class="topbar">
+    <a class="topbar__mark" href="#top" aria-label={`${profile.name}, back to top`}>{initials}</a>
+    <nav class="topbar__nav" aria-label="Sections">
+      <ul>
+        {
+          sections.map((section) => (
+            <li>
+              <a href={`#${section.id}`}>{section.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <ThemeToggle />
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="hero__eyebrow reveal" style="--d: 0">
+          <span>{profile.location}</span>
+          <span class="hero__sep" aria-hidden="true">/</span>
+          <span>{profile.fullName}</span>
+        </p>
+        <h1 id="hero-title" class="hero__name">
+          <span class="reveal" style="--d: 1">{firstName}</span>
+          {restName.length > 0 && <em class="reveal" style="--d: 2">{restName.join(" ")}</em>}
+        </h1>
+        <p class="hero__line reveal" style="--d: 3">{profile.oneLiner}</p>
+        {
+          isPresent(profile.now) && (
+            <p class="hero__now reveal" style="--d: 4">
+              <span class="pulse" aria-hidden="true" />
+              {profile.now}
+            </p>
+          )
+        }
+        <div class="hero__actions reveal" style="--d: 5">
+          {
+            isPresent(profile.email) && (
+              <a class="button button--solid" href={`mailto:${profile.email}`}>
+                Email me
+              </a>
+            )
+          }
+          {
+            resumeHref && (
+              <a class="button" href={resumeHref}>
+                Resume <span aria-hidden="true">↓</span>
+              </a>
+            )
+          }
+        </div>
+      </div>
+      <div class="hero__media reveal" style="--d: 2">
+        <Portrait src={profile.photos.portrait} alt={profile.photos.portraitAlt} initials={initials} />
+      </div>
+    </section>
+
+    {
+      has("about") && (
+        <section class="section about" id="about" aria-labelledby="about-title">
+          <SectionHead index={indexOf("about")} id="about" title="About" />
+          <div class="about__grid">
+            <div class="about__bio">
+              {profile.bio.filter(isPresent).map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+            <aside class="about__aside" aria-label="Quick facts">
+              {
+                profile.facts.length > 0 && (
+                  <dl class="facts">
+                    {profile.facts.map((fact) => (
+                      <div class="facts__row">
+                        <dt>{fact.label}</dt>
+                        <dd>{fact.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )
+              }
+              {
+                profile.skills.length > 0 && (
+                  <div class="skills">
+                    <h3 class="skills__title">Toolbox</h3>
+                    <ul class="chips">
+                      {profile.skills.map((skill) => (
+                        <li>{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              }
+            </aside>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      has("work") && (
+        <section class="section" id="work" aria-labelledby="work-title">
+          <SectionHead index={indexOf("work")} id="work" title="Work" kicker="Where to find the professional version." />
+          <LinkRows items={workRows} />
+        </section>
+      )
+    }
+
+    {
+      has("film") && (
+        <section class="section" id="film" aria-labelledby="film-title">
+          <SectionHead index={indexOf("film")} id="film" title="Film" kicker="Recently watched, straight from my Letterboxd diary.">
+            {letterboxdProfile && (
+              <a class="section-head__link" href={letterboxdProfile} target="_blank" rel="noopener noreferrer">
+                Letterboxd <span aria-hidden="true">↗</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            )}
+          </SectionHead>
+          <ol class="posters">
+            {diary.map((film) => (
+              <li class="poster">
+                <a href={film.link} target="_blank" rel="noopener noreferrer" class="poster__link">
+                  <div class="poster__frame">
+                    {film.poster ? (
+                      <img
+                        src={film.poster}
+                        alt={`Poster for ${film.title}`}
+                        width="230"
+                        height="345"
+                        loading="lazy"
+                        decoding="async"
+                        referrerpolicy="no-referrer"
+                      />
+                    ) : (
+                      <span class="poster__blank" aria-hidden="true">
+                        {film.title}
+                      </span>
+                    )}
+                  </div>
+                  <span class="poster__title">
+                    {film.title}
+                    {film.year && <span class="poster__year"> {film.year}</span>}
+                  </span>
+                  <span class="poster__meta">
+                    {film.stars && (
+                      <span class="poster__stars" aria-label={`Rated ${film.rating} out of 5`}>
+                        {film.stars}
+                      </span>
+                    )}
+                    {film.liked && (
+                      <span class="poster__like" aria-label="Liked">
+                        ♥
+                      </span>
+                    )}
+                    {film.watchedLabel && (
+                      <time class="poster__date" datetime={film.watchedDate ?? undefined}>
+                        {film.watchedLabel}
+                      </time>
+                    )}
+                  </span>
+                  <span class="sr-only">(opens Letterboxd in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )
+    }
+
+    {
+      has("music") && (
+        <section class="section" id="music" aria-labelledby="music-title">
+          <SectionHead index={indexOf("music")} id="music" title="Music" kicker="On rotation lately." />
+          <ul class="music">
+            {musicPicks.map((pick) => (
+              <li class:list={["track", { "track--embed": pick.embed }]}>
+                <div class="track__text">
+                  <span class="track__title">{pick.title}</span>
+                  <span class="track__artist">{pick.artist}</span>
+                </div>
+                {pick.embed ? (
+                  <iframe
+                    class:list={["track__embed", `track__embed--${pick.embedKind}`]}
+                    src={pick.embed}
+                    title={`${pick.title} by ${pick.artist} on ${pick.embedLabel}`}
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                  />
+                ) : null}
+              </li>
+            ))}
+          </ul>
+          {musicProfileRows.length > 0 && (
+            <p class="music__profiles">
+              {musicProfileRows.map((item) => (
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.label} <span aria-hidden="true">↗</span>
+                  <span class="sr-only">(opens in a new tab)</span>
+                </a>
+              ))}
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    {
+      has("photos") && (
+        <section class="section" id="photos" aria-labelledby="photos-title">
+          <SectionHead index={indexOf("photos")} id="photos" title="Photos" />
+          <ul class="gallery">
+            {gallery.map((photo) => (
+              <li>
+                <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      has("more") && (
+        <section class="section" id="more" aria-labelledby="more-title">
+          <SectionHead index={indexOf("more")} id="more" title="More" kicker="Odds and ends." />
+          <LinkRows items={moreRows} compact />
+        </section>
+      )
+    }
+  </main>
+
+  <footer class="footer">
+    <p class="footer__sign">{profile.name}, {profile.location}</p>
+    <p class="footer__meta">
+      <span>© {year}</span>
+      <span>Built with Astro, updated {builtOn}</span>
+    </p>
+  </footer>
+</Base>
