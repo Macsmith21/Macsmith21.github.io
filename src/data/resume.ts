@@ -46,13 +46,13 @@ export const resume = {
       ],
     },
     {
-      title: "Stock Team Member",
+      title: "Head of Research, Stock Team",
       org: "Student Managed Investment Fund",
       place: "Columbia, SC",
       dates: "Jan 2024 – May 2024",
       points: [
-        "Co-managed a $1.5M investment trust across ETFs, equities, and commodities.",
-        "Evaluated holdings and pitched new investments to the fund.",
+        "Led research for the stock team of a $1.5M student-managed investment trust spanning ETFs, equities, and commodities.",
+        "Directed evaluation of current holdings and vetted new investment pitches before they went to the fund.",
       ],
     },
     {
