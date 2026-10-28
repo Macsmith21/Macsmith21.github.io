@@ -18,7 +18,7 @@ export const resume = {
     {
       title: "Data Scientist and AI Czar",
       org: "Vista Site Selection",
-      place: "Columbus, OH",
+      place: "Columbus, OH (Remote)",
       dates: "May 2024 – Present",
       points: [
         "Company AI Czar: led Vista's adoption of AI, trained 3 teammates on APIs, AI tools, and AI-assisted development with a company-wide rollout underway, and built a multi-agent AI system that plans, codes, reviews, and ships work.",

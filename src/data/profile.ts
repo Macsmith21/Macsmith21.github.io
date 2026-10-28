@@ -1,7 +1,7 @@
 export const profile = {
   name: "Mac Smith",
   tagline: "Data, maps, and the systems underneath them.",
-  location: "Dublin, Ohio",
+  location: "Dallas, Texas",
   email: "smithmac405@gmail.com",
 
   photo: {
