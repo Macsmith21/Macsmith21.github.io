@@ -21,7 +21,7 @@ const year = new Date().getFullYear();
 <Base title={profile.name} description={profile.tagline} image={ogImage}>
   <main class="page">
     <header class="hero">
-      <Portrait src={profile.photo.src} alt={profile.photo.alt} name={profile.name} />
+      <Portrait src={profile.photo.src} name={profile.name} />
       <h1 class="hero__name">{profile.name}</h1>
       <p class="hero__tagline">{profile.tagline}</p>
       <p class="hero__location">{profile.location}</p>
@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer me"
-                aria-label={item.label}
+                aria-label={`${item.label} (opens in new tab)`}
                 title={item.label}
                 style={`--brand: ${item.brand}`}
               >
@@ -103,6 +103,7 @@ const year = new Date().getFullYear();
                     <span class="feature__top">
                       <span class="feature__title">{item.title}</span>
                       <span class="feature__visit" aria-hidden="true">Visit ↗</span>
+                      <span class="sr-only">(opens in new tab)</span>
                     </span>
                     <span class="feature__role">{item.role}</span>
                     <span class="feature__blurb">{item.blurb}</span>
@@ -131,6 +132,7 @@ const year = new Date().getFullYear();
                 </span>
                 <span class="work__title">{item.title}</span>
                 <span class="work__blurb">{item.blurb}</span>
+                {item.href.startsWith("http") && <span class="sr-only">(opens in new tab)</span>}
               </a>
             </li>
           ))

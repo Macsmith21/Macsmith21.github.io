@@ -6,7 +6,6 @@ export const profile = {
 
   photo: {
     src: "/images/portrait.jpg",
-    alt: "Mac Smith",
   },
 
   links: {
