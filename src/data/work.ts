@@ -9,7 +9,7 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     title: "Vista Site Selection",
-    role: "Data Scientist and AI Czar · 2023 – Present",
+    role: "Intern to Data Scientist and AI Czar · 2023 – Present",
     blurb:
       "Site selection, incentives, and analytics consultancy in Columbus. I build the dashboards, maps, data pipelines, and in-house tools behind the work.",
     href: "https://www.vistasiteselection.com/",
