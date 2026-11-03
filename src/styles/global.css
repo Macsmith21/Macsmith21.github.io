@@ -233,6 +233,30 @@ a.social:hover {
   border-color: var(--text);
 }
 
+.reveal__toggle {
+  display: inline-block;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.reveal__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.reveal__hide,
+.reveal[open] .reveal__show {
+  display: none;
+}
+
+.reveal[open] .reveal__hide {
+  display: inline;
+}
+
+.reveal[open] .reveal__toggle {
+  margin-bottom: 32px;
+}
+
 .resume-block + .resume-block {
   margin-top: 40px;
 }
