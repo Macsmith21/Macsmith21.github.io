@@ -55,31 +55,37 @@ const year = new Date().getFullYear();
         <h2 id="resume-heading">Resume</h2>
         {resumePdf && <a class="pill" href={resumePdf}>Download PDF</a>}
       </div>
-      <ResumeBlock heading="Experience" entries={resume.experience} />
-      <ResumeBlock heading="Projects" entries={resume.projects} />
-      <ResumeBlock heading="Education" entries={resume.education} />
-      {
-        resume.skills.length > 0 && (
-          <div class="resume-block">
-            <h3 class="resume-block__heading">Skills</h3>
-            <dl class="skill-groups">
-              {resume.skills.map((skill) => (
-                <div class="skill-group">
-                  <dt>{skill.group}</dt>
-                  <dd>
-                    <ul class="tags">
-                      {skill.items.map((item) => (
-                        <li>{item}</li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        )
-      }
-      <ResumeBlock heading="Community" entries={resume.community} />
+      <details class="reveal">
+        <summary class="pill reveal__toggle">
+          <span class="reveal__show">Show resume</span>
+          <span class="reveal__hide">Hide resume</span>
+        </summary>
+        <ResumeBlock heading="Experience" entries={resume.experience} />
+        <ResumeBlock heading="Projects" entries={resume.projects} />
+        <ResumeBlock heading="Education" entries={resume.education} />
+        {
+          resume.skills.length > 0 && (
+            <div class="resume-block">
+              <h3 class="resume-block__heading">Skills</h3>
+              <dl class="skill-groups">
+                {resume.skills.map((skill) => (
+                  <div class="skill-group">
+                    <dt>{skill.group}</dt>
+                    <dd>
+                      <ul class="tags">
+                        {skill.items.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )
+        }
+        <ResumeBlock heading="Community" entries={resume.community} />
+      </details>
     </section>
 
     {
